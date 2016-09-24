@@ -8,16 +8,13 @@
   },
   "author": "",
   "license": "ISC",
-  "babel": {
-    "presets": [
-      "es2015"
-    ]
-  },
   "dependencies": {
     "react": "^15.3.2",
     "react-dom": "^15.3.2"
   },
   "devDependencies": {
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
     "babel-preset-es2015": "^6.14.0",
     "babel-register": "^6.14.0",
     "style-loader": "^0.13.1",
