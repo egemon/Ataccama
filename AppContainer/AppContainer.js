@@ -24,9 +24,8 @@ class AppContainer extends React.Component {
 
     remove() {
         const path = Array.prototype.slice.call(arguments, 0, arguments.length - 3);
-        let newState = JSON.parse(JSON.stringify(this.state));
-        this.removeItem(newState.kids.main.records, path);
-        this.setState(newState);
+        this.removeItem(this.state.kids.main.records, path);
+        this.setState(this.state);
     }
 
     removeItem(arr, path) {
