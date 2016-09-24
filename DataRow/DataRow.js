@@ -37,17 +37,21 @@ class DataRow extends React.Component {
 					let arrowHidden = relations && hasItems ? '' : 'arrow--hidden';
 					return (
 						<div key={key}
-						     className="data-table__row-cell data-table__row-cell-icon"
-						     onClick={this.handlers[key]}>
-							<div className={`arrow arrow-${this.state.hiddenClass ? 'right' : 'down'} ${arrowHidden}`}></div>
+						     className="data-table__row-cell data-table__row-cell-icon">
+							<div
+								onClick={this.handlers[key]}
+								className={`icon arrow arrow-${this.state.hiddenClass ? 'right' : 'down'} ${arrowHidden}`}>
+							</div>
 						</div>
 					);
 				case '-':
 					return (
 						<div key={key}
-						     className="data-table__row-cell data-table__row-cell-icon"
-						     onClick={this.handlers[key]}>
-							<div className="cross"></div>
+						     className="data-table__row-cell data-table__row-cell-icon">
+							<div
+								onClick={this.handlers[key]}
+								className="icon cross">
+							</div>
 						</div>
 					);
 				default:

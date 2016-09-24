@@ -22,11 +22,12 @@
 .data-table__row-cell.data-table__row-cell-icon {
     padding: 10px;
     width: initial;
+    min-width: 20px;
+    min-height: 20px;
 }
 
 .data-table__row-cell.data-table__row-cell-icon {
     position: relative;
-    cursor: pointer;
 }
 
 .data-table__header-row,

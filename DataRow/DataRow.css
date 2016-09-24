@@ -1,7 +1,12 @@
+.icon {
+    cursor: pointer;
+}
+
 .arrow {
     width: 0;
     height: 0;
     border: 10px solid transparent;
+
 }
 .arrow-down {
     border-top-color: #000;
