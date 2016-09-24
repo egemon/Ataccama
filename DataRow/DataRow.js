@@ -9,7 +9,7 @@ class DataRow extends React.Component {
 		super(props);
 		this.handlers = {
 			'+': this.toggleView.bind(this),
-			'-': this.remove.bind(this)
+			'-': props.remove
 		};
 		this.state = {
 			hiddenClass: 'hidden'
@@ -24,20 +24,17 @@ class DataRow extends React.Component {
 		console.log('expand');
 	}
 
-	remove(){
-		console.log('remove');
-	}
-
 	render(){
 		let item = this.props.item;
 		let keys = Object.keys(item.data);
 		let headers = ['+', '-', ...keys];
 		let relations = Object.keys(item.kids)[0];
+		let hasItems = relations && !!item.kids[relations].records.length;
 
 		let cells = headers.map((key, j) => {
 			switch (key) {
 				case '+':
-					let arrowHidden = relations ? '' : 'arrow--hidden';
+					let arrowHidden = relations && hasItems ? '' : 'arrow--hidden';
 					return (
 						<div key={key}
 						     className="data-table__row-cell data-table__row-cell-icon"
@@ -68,7 +65,7 @@ class DataRow extends React.Component {
 				{cells}
 				</div>
 				<div className={"data-table__data-details " + this.state.hiddenClass}>
-					<DataTable data={item} />
+					<DataTable data={item} remove={this.props.remove}/>
 				</div>
 			</div>
 		);
