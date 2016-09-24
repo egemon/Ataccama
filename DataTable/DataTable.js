@@ -19,9 +19,11 @@ class DataTable extends React.Component {
 
 		let headers = ['+', '-', ...keys];
 		let headersElements = headers.map( (columnTitle, i)=> {
+			let iconClass = keys.includes(columnTitle) ? '' : 'data-table__header-cell-icon';
+
 			return (
 				<div key={i}
-				     className={"data-table__header-cell " + "data-table__header-cell--" + i}>
+				     className={`data-table__header-cell ${iconClass}`}>
 					{columnTitle}
 				</div>
 			);

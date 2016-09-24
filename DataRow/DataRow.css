@@ -1,43 +1,45 @@
-.icon {
-    cursor: pointer;
-}
-
-.arrow {
-    width: 0;
-    height: 0;
-    border: 10px solid transparent;
-
-}
-.arrow-down {
-    border-top-color: #000;
+.data-table__data-item {
+    border: 1px solid #e8e8e8;
+    border-top: none;
     border-bottom: none;
 }
 
-.arrow-right {
-    border-left-color: #000;
+.data-table__data-item:nth-child(even) {
+    background-color: #f5f5f5;
+}
+.data-table__data-item:nth-child(odd) {
+    background-color: #fafafa;
+}
+
+.data-table__data-row {
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid #e8e8e8;
+}
+.data-table__data-row:hover {
+    background-color: #e9f5dc;
+}
+
+.data-table__row-cell {
+    width: 100%;
+    padding: 5px;
+    flex-grow: 2;
+    border-right: 1px solid #e8e8e8;
+    text-align: center;
+}
+
+.data-table__row-cell:last-child {
     border-right: none;
 }
-.arrow.arrow--hidden {
-    opacity: 0;
+
+.data-table__row-cell.data-table__row-cell-icon {
+    position: relative;
+    width: initial;
+    min-width: 20px;
+    min-height: 20px;
+    padding: 5px;
 }
 
-
-.cross {
-    width: 10px;
-    height: 10px;
-    opacity: 1;
-}
-.cross:before, .cross:after {
-    position: absolute;
-    left: 15px;
-    content: ' ';
-    height: 18px;
-    width: 2px;
-    background-color: #000;
-}
-.cross:before {
-    transform: rotate(45deg);
-}
-.cross:after {
-    transform: rotate(-45deg);
+.hidden {
+    display: none;
 }
