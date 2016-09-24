@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --compilers js:babel-register --watch",
     "start": "webpack-dev-server"
   },
   "author": "",

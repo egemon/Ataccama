@@ -5,47 +5,62 @@ import React from 'react';
 import DataRow from '../DataRow/DataRow';
 
 class DataTable extends React.Component {
-	constructor (props){
-		super(props);
-	}
+    constructor () {
+        super();
+    }
 
-	render(){
-		let relations = Object.keys(this.props.data.kids)[0];
-		if (!relations || !this.props.data.kids[relations].records.length) {
-			return <div></div>;
-		}
-		let childrens = this.props.data.kids[relations].records;
-		let keys = Object.keys(childrens[0].data);
+    render() {
+        const relations = Object.keys(this.props.data.kids)[0];
+        if (!relations || !this.props.data.kids[relations].records.length) {
+            return null;
+        }
 
-		let headers = ['+', '-', ...keys];
-		let headersElements = headers.map( (columnTitle, i)=> {
-			let iconClass = keys.includes(columnTitle) ? '' : 'data-table__header-cell-icon';
+        const childrens = this.props.data.kids[relations].records;
+        const rows = this.getRows(childrens);
 
-			return (
-				<div key={i}
-				     className={`data-table__header-cell ${iconClass}`}>
-					{columnTitle}
-				</div>
-			);
-		}) ;
+        const keys = Object.keys(childrens[0].data);
+        const headers = this.getHeaders(keys);
 
-		let rows = childrens.map((item, i) => {
-			return <DataRow key={i} item={item} remove={this.props.remove.bind(this, i)}/>;
-		});
+        return (
+            <div className="data-table">
+                <div className="data-table__title">{relations}</div>
+                <div className="data-table__header-row">
+                    {headers}
+                </div>
+                <div className="data-table__data-container">
+                    {rows}
+                </div>
+            </div>
+        );
+    }
+
+    getHeaders (keys) {
+        const headers = ['+', '-', ...keys];
+        return headers.map((columnTitle, i) => {
+            const iconClass = keys.includes(columnTitle) ? '' : 'data-table__header-cell-icon';
+
+            return (
+                <div key={i}
+                     className={`data-table__header-cell ${iconClass}`}>
+                    {columnTitle}
+                </div>
+            );
+        });
+    }
+
+    getRows (childrens) {
+        return childrens.map((item, i) => {
+            return (
+                <DataRow
+                    key={i}
+                    item={item}
+                    remove={this.props.remove.bind(this, i)}
+                />
+            );
+        });
+    }
 
 
-		return (
-			<div className="data-table">
-				<div className="data-table__title">{relations}</div>
-				<div className="data-table__header-row">
-					{headersElements}
-				</div>
-				<div className="data-table__data-container">
-					{rows}
-				</div>
-			</div>
-		);
-	}
 }
 
-export default  DataTable;
+export default DataTable;

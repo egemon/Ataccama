@@ -7,12 +7,16 @@
 
 .data-table__title {
     width: 100%;
+    border: 1px solid #e8e8e8;
+    border-bottom: none;
+    padding: 10px;
+    font-weight: bold;
 }
 
 .data-table__header-row {
     display: flex;
     width: 100%;
-    border-bottom: 1px solid #e8e8e8;
+    border: 1px solid #e8e8e8;
     background-color: #ebebeb;
     font-weight: bold;
 }
