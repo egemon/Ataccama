@@ -16,14 +16,11 @@
   },
   "dependencies": {
     "react": "^15.3.2",
-    "react-dom": "^15.3.2",
-    "redux": "^3.6.0"
+    "react-dom": "^15.3.2"
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.14.0",
     "babel-register": "^6.14.0",
-    "css-loader": "^0.25.0",
-    "mocha": "^3.0.2",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.1"

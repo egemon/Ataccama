@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import DataTable from './../DataTable/DataTable'
-import store from './../Store/store';
+import data from './../data';
 
 class AppContainer extends React.Component {
 	constructor (props){
@@ -18,7 +18,7 @@ class AppContainer extends React.Component {
 			},
 			kids: {
 				main: {
-					records: [...store.getState().slice(0,3)]
+					records: data
 				}
 			}
 		};
@@ -41,8 +41,6 @@ class AppContainer extends React.Component {
 
 	remove(){
 		let path = Array.prototype.slice.call(arguments, 0, arguments.length - 3);
-		console.log(arguments);
-		console.log(path);
 		let newState = JSON.parse(JSON.stringify(this.state));
 		this.removeFromArray(newState.kids.main.records, path);
 		this.setState(newState);

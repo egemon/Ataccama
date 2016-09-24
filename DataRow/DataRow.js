@@ -21,7 +21,6 @@ class DataRow extends React.Component {
 			hiddenClass: this.state.hiddenClass === 'hidden' ? '' :
 				'hidden'
 		});
-		console.log('expand');
 	}
 
 	render(){
