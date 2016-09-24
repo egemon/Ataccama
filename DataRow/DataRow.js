@@ -54,9 +54,9 @@ class DataRow extends React.Component {
         const arrowHidden = relations && hasItems ? '' : 'arrow--hidden';
         return (
             <div key={key}
+                 onClick={this.toggleView}
                  className="data-table__row-cell data-table__row-cell-icon">
              <div
-                 onClick={this.toggleView}
                  className={`icon arrow arrow-${this.state.hiddenClass ? 'right' : 'down'} ${arrowHidden}`}>
              </div>
             </div>
@@ -72,9 +72,9 @@ class DataRow extends React.Component {
     getRemoveButton(key) {
         return (
             <div key={key}
+                 onClick={this.props.remove}
                  className="data-table__row-cell data-table__row-cell-icon">
                 <div
-                    onClick={this.props.remove}
                     className="icon cross">
                 </div>
             </div>
